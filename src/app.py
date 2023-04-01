@@ -21,7 +21,7 @@ from sklearn.metrics import mean_squared_error
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.SOLAR, dbc.icons.BOOTSTRAP])
-# server = app.server
+server = app.server
 
 app.layout = dbc.Container([
     dbc.Card([
