@@ -1,0 +1,6 @@
+[PROJECTS]
+Count=2
+Project0=..\..\MikroC\Final\Temperature\MyProject.mcppi
+Project1=transmitter.mcppi
+[ActiveProject]
+Index=1

@@ -1,0 +1,6 @@
+[PROJECTS]
+Count=2
+Project0=..\Transmitter_PWM\transmitter.mcppi
+Project1=transmitter_OOK.mcppi
+[ActiveProject]
+Index=1

@@ -1,0 +1,11 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP16F877A -DL -O11111114 -fo16 -N"F:\LEC Notes\Semester 07\FYP\PIC\Transmitter_OOK\transmitter_OOK.mcppi" -SP"D:\MikroC\mikroC PRO for PIC\Defs\" -SP"D:\MikroC\mikroC PRO for PIC\Uses\P16\" -SP"F:\LEC Notes\Semester 07\FYP\PIC\Transmitter_OOK\" -IP"D:\MikroC\mikroC PRO for PIC\Uses\P16\" "transmitter_OOK.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CType.mcl" "__Lib_CString.mcl" "__Lib_CStdlib.mcl" "__Lib_CMath.mcl"	 
+hint: 0	1139	Available RAM: 352 [bytes], Available ROM: 8192 [bytes]	 
+diagnostics: 0	122	Compilation Started	transmitter_OOK.c
+diagnostics: 26	123	Compiled Successfully	transmitter_OOK.c
+diagnostics: 0	127	All files Compiled in 46 ms	 
+hint: 0	1144	Used RAM (bytes): 20 (6%)  Free RAM (bytes): 332 (94%)	Used RAM (bytes): 20 (6%)  Free RAM (bytes): 332 (94%)
+hint: 0	1144	Used ROM (program words): 140 (2%)  Free ROM (program words): 8052 (98%)	Used ROM (program words): 140 (2%)  Free ROM (program words): 8052 (98%)
+diagnostics: 0	125	Project Linked Successfully	transmitter_OOK.mcppi
+diagnostics: 0	128	Linked in 16 ms	 
+diagnostics: 0	129	Project 'transmitter_OOK.mcppi' completed: 62 ms	 
+diagnostics: 0	103	Finished successfully: 26 Aug 2022, 00:18:59	transmitter_OOK.mcppi
