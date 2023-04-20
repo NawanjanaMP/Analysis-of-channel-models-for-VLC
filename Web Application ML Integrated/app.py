@@ -19,6 +19,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
+deg = 2
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.SOLAR, dbc.icons.BOOTSTRAP])
 # server = app.server
@@ -194,6 +195,13 @@ app.layout = dbc.Container([
                                                 dcc.Graph(id='scatter-plot')
                                
                             ),
+                            html.Br(),
+
+                            dbc.Row(
+                            [
+                                html.Div(id='coef-value') 
+                            ]
+                            ),
                         ]
                         ),
                     
@@ -352,7 +360,7 @@ def update_output(contents, filename):
 
 # Define the callback function for the "Train" button
 @app.callback(
-    [Output('train-score', 'children'), Output('scatter-plot', 'figure')],
+    [Output('train-score', 'children'),Output('scatter-plot', 'figure')],
     [Input('train-button', 'n_clicks')],
     [State('user_independent', 'value'), State('user_dependent', 'value'), State('upload-data', 'contents')]
 )
@@ -399,11 +407,14 @@ def train_model(n_clicks, x_column, y_column, contents):
     # print(np.sqrt(mean_squared_error(y_test,y_pred1)))
 
     # Train the model with polynomial regression
-    poly_reg = PolynomialFeatures(degree=2)
+    poly_reg = PolynomialFeatures(degree=deg)
     X_poly = poly_reg.fit_transform(X)
     lin_reg = LinearRegression()
     lin_reg.fit(X_poly, y)
-
+    x1=df[x_column].values
+    y1=df[y_column].values
+    con = np.polyfit(x1,y1,deg)
+    print(f'Equation is ({con[0]:.2f})x^2 + ({con[1]:.2f})x + ({con[2]:.2f})')
     # Calculate the R-squared score of the model
     train_score = lin_reg.score(X_poly, y)
 
@@ -420,7 +431,6 @@ def train_model(n_clicks, x_column, y_column, contents):
     }
 
     return f'Train score: {train_score:.4f}', scatter_plot
-
 
 @app.callback(
     Output('predict-value', 'children'),
@@ -459,13 +469,13 @@ def predict_value(n_clicks, x_column, y_column,contents,input_x):
 
     # Prepare the data for prediction
     X_pred = [[input_x]]
-    poly = PolynomialFeatures(degree=2)
+    poly = PolynomialFeatures(degree=deg)
     X_pred_poly = poly.fit_transform(X_pred)
 
     # Train the model
     X = df[x_column].values.reshape(-1, 1)
     y = df[y_column].values.reshape(-1, 1)
-    poly = PolynomialFeatures(degree=2)
+    poly = PolynomialFeatures(degree=deg)
     X_poly = poly.fit_transform(X)
     model = LinearRegression()
     model.fit(X_poly, y)
