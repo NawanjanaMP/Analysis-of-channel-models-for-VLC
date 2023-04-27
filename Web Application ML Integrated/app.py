@@ -413,8 +413,13 @@ def train_model(n_clicks, x_column, y_column, contents):
     lin_reg.fit(X_poly, y)
     x1=df[x_column].values
     y1=df[y_column].values
+
     con = np.polyfit(x1,y1,deg)
+    # print(f'Equation is ({con[0]:.2f})x + ({con[1]:.2f})')
     print(f'Equation is ({con[0]:.2f})x^2 + ({con[1]:.2f})x + ({con[2]:.2f})')
+    # print(f'Equation is ({con[0]:.2f})x^3 + ({con[1]:.2f})x^2 + ({con[2]:.2f})x + ({con[3]:.2f})')
+    # print(f'Equation is ({con[0]:.2f})x^4 + ({con[1]:.2f})x^3 + ({con[2]:.2f})x^2 + ({con[3]:.2f})x + ({con[4]:.2f})')
+
     # Calculate the R-squared score of the model
     train_score = lin_reg.score(X_poly, y)
 
