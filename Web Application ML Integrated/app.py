@@ -489,7 +489,7 @@ def predict_value(n_clicks, x_column, y_column,contents,input_x):
     y_pred = model.predict(X_pred_poly)
 
     # Return the predicted value
-    return f'Predicted value for {x_column} equals to {input_x} is {y_pred[0][0]:.4f}'
+    return f'Predicted value for {x_column}({input_x}) equals to {y_pred[0][0]:.4f}'
 
 
 # def remove_used(list, used):
