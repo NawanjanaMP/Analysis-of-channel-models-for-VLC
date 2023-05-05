@@ -19,7 +19,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
-deg = 2
+deg = 3
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.SOLAR, dbc.icons.BOOTSTRAP])
 # server = app.server
@@ -416,8 +416,8 @@ def train_model(n_clicks, x_column, y_column, contents):
 
     con = np.polyfit(x1,y1,deg)
     # print(f'Equation is ({con[0]:.2f})x + ({con[1]:.2f})')
-    print(f'Equation is ({con[0]:.2f})x^2 + ({con[1]:.2f})x + ({con[2]:.2f})')
-    # print(f'Equation is ({con[0]:.2f})x^3 + ({con[1]:.2f})x^2 + ({con[2]:.2f})x + ({con[3]:.2f})')
+    # print(f'Equation is ({con[0]:.2f})x^2 + ({con[1]:.2f})x + ({con[2]:.2f})')
+    print(f'Equation is ({con[0]:.2f})x^3 + ({con[1]:.2f})x^2 + ({con[2]:.2f})x + ({con[3]:.2f})')
     # print(f'Equation is ({con[0]:.2f})x^4 + ({con[1]:.2f})x^3 + ({con[2]:.2f})x^2 + ({con[3]:.2f})x + ({con[4]:.2f})')
 
     # Calculate the R-squared score of the model
