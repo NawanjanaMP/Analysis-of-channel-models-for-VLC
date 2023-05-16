@@ -149,10 +149,10 @@ P_rec_A2=h2*P_LED.*Ts.*G_Con;
 P_rec_A3=h3*P_LED.*Ts.*G_Con;
 P_rec_A4=h4*P_LED.*Ts.*G_Con;
 P_rx=P_rec_A1+P_rec_A2+P_rec_A3+P_rec_A4+P_rx_total;
-P_rx_initial =P_rx;
-%P_rx_final =P_rx - (40.5-482.*D+2216.*(D.^(2))-4621.*(D.^(3))+3660.*(D.^(4)));
-%P_rx_final =P_rx - (-42.9+239.*D-444.*(D.^(2))+276.*(D.^(3)));
-P_rx_final =P_rx - (-3.38+12.1.*D-11.*(D.^(2)));
+% P_rx_initial =P_rx;
+% %P_rx_final =P_rx - (40.5-482.*D+2216.*(D.^(2))-4621.*(D.^(3))+3660.*(D.^(4)));
+% %P_rx_final =P_rx - (-42.9+239.*D-444.*(D.^(2))+276.*(D.^(3)));
+% P_rx_final =P_rx - (-3.38+12.1.*D-11.*(D.^(2)));
 %P_rec_1ref_dBm=10*log10 (P_rec_total_1ref);
 %surf(x ,y , P_rec_1ref_dBm) ; hold on
 %surf(x ,y , H_all) ;
@@ -174,14 +174,20 @@ zlabel('Channel DC Gain' )
 hold on
 title('3D Plot for Channel DC Gain' ) 
 
-figure(2)
-plot(D,P_rx_initial)
-xlabel('Distance from LED to PD')
-ylabel('Received Power (mW)')
-title('3D Plot for Received Power Distribution Initially (mW)' ) 
+% figure(2)
+% plot(D,P_rx_initial)
+% xlabel('Distance from LED to PD')
+% ylabel('Received Power (mW)')
+% title('3D Plot for Received Power Distribution Initially (mW)' ) 
+% 
+% figure(3)
+% plot(D,P_rx_final)
+% xlabel('Distance from LED to PD')
+% ylabel('Received Power (mW)')
+% title('3D Plot for Received Power Distribution (mW)-Modeltuned for actual Received Power' )
 
 figure(3)
-plot(D,P_rx_final)
+plot(D,P_rx)
 xlabel('Distance from LED to PD')
 ylabel('Received Power (mW)')
-title('3D Plot for Received Power Distribution (mW)-Modeltuned for actual Received Power' )
+title('2D Plot for Received Power Distribution (mW)' )
